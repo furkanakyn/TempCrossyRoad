@@ -28,10 +28,14 @@ public class FailUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void RestartButtonClicked()
+    public void MainMenuButtonClicked()
     {
         gameDirector.mainMenu.Show();
         Hide();
     }
-
+    public void RestartButtonClicked()
+    {
+        gameDirector.ResetLevel();
+        Hide();
+    }
 }

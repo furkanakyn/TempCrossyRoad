@@ -23,4 +23,19 @@ public class CoinUI : MonoBehaviour
     {
         coinTMP.text = PlayerPrefs.GetInt("CoinCount").ToString();
     }
+    public void CoinBounceAnimation()
+    {
+        RectTransform coinRectTransform = coinTMP.GetComponent<RectTransform>();
+
+        Vector3 startPos = coinRectTransform.localPosition;
+        Vector3 endPos = startPos + new Vector3(50, 0, 0);
+        coinTMP.DOKill();
+        coinTMP.rectTransform.DOKill(); //çözemedim
+        coinTMP.transform.DOKill();
+        coinRectTransform.DOLocalMove(endPos, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(CoinTMPSetActiveFalse);
+    }
+    public void CoinTMPSetActiveFalse()
+    {
+        coinTMP.gameObject.SetActive(false);
+    }
 }

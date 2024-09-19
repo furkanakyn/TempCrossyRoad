@@ -110,6 +110,8 @@ public class Player : MonoBehaviour
     }
     private void CollectCoin()
     {
+        gameDirector.coinUI.coinTMP.gameObject.SetActive(true);
+        gameDirector.coinUI.CoinBounceAnimation();
         gameDirector.coinManager.EarnCoins(1);
         gameDirector.coinUI.UpdateCoinCount();
     }
